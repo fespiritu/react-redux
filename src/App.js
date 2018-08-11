@@ -1,21 +1,42 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from  'react';
+//import logo from './logo.svg';
 import './App.css';
+import {connect} from  'react-redux';
+
+
+import {simpleClickAction} from './actions/simpleAction'
 
 class App extends Component {
+
+  handleClickAction = (event) => {
+  this.props.simpleClickAction();   //this should match mapDispatchToProps and in /actions/simpleAction.js
+}
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1>My Redux Base Application</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <button onClick={this.handleClickAction}>Test redux action</button>
         </p>
+        <pre>
+          {
+            JSON.stringify(this.props)
+          }
+        </pre>
       </div>
     );
   }
 }
 
-export default App;
+
+const mapStateToProps = state => ({
+  ...state
+})
+
+const mapDispatchToProps = dispatch => ({
+  simpleClickAction: () => dispatch(simpleClickAction())
+})
+export default connect(mapStateToProps, mapDispatchToProps) (App);
