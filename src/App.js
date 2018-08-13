@@ -5,6 +5,7 @@ import {connect} from  'react-redux';
 
 
 import {simpleClickAction} from './actions/simpleAction'
+import ReportDataEntryForm from "./components/report-dataentry";
 
 class App extends Component {
 
@@ -26,6 +27,8 @@ class App extends Component {
             JSON.stringify(this.props)
           }
         </pre>
+        <hr/>
+        <ReportDataEntryForm/>
       </div>
     );
   }
