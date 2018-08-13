@@ -7,10 +7,11 @@ import registerServiceWorker from './registerServiceWorker';
 //redux stuffs
 import {Provider} from 'react-redux'
 import configureStore from './store'
+import MyLayout from "./components/layouts";
 
 
 ReactDOM.render(
-    <Provider store={configureStore()}><App />
+    <Provider store={configureStore()}><MyLayout />
     </Provider>, document.getElementById('root')
 );
 registerServiceWorker();
