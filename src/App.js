@@ -1,17 +1,18 @@
-import React, { Component } from  'react';
+import React, { Component } from "react";
 //import logo from './logo.svg';
-import './App.css';
-import {connect} from  'react-redux';
+import "./App.css";
+import { connect } from "react-redux";
 
-
-import {simpleClickAction} from './actions/simpleAction'
+import { simpleClickAction, my_BUTTON_CLICK } from "./actions/simpleAction";
 
 class App extends Component {
+  handleClickAction = event => {
+    this.props.simpleClickAction(); //this should match mapDispatchToProps and in /actions/simpleAction.js
+  };
 
-  handleClickAction = (event) => {
-  this.props.simpleClickAction();   //this should match mapDispatchToProps and in /actions/simpleAction.js
-}
-
+  handleSubmit = e => {
+    this.props.my_BUTTON_CLICK();
+  };
   render() {
     return (
       <div className="App">
@@ -20,23 +21,23 @@ class App extends Component {
         </header>
         <p className="App-intro">
           <button onClick={this.handleClickAction}>Test redux action</button>
+          <button onClick={this.handleSubmit}>Submit</button>
         </p>
-        <pre>
-          {
-            JSON.stringify(this.props)
-          }
-        </pre>
+        <pre>{JSON.stringify(this.props)}</pre>
       </div>
     );
   }
 }
 
-
 const mapStateToProps = state => ({
   ...state
-})
+});
 
 const mapDispatchToProps = dispatch => ({
-  simpleClickAction: () => dispatch(simpleClickAction())
-})
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+  simpleClickAction: () => dispatch(simpleClickAction()),
+  my_BUTTON_CLICK: () => dispatch(my_BUTTON_CLICK())
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

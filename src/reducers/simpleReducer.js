@@ -6,6 +6,10 @@ export default (state = {}, action) =>{
             return {
                 result: action.payload
             }
+        case 'MY_BUTTON_CLICK':
+            return {
+                result: action.payload
+            }
         default:
             return state
     }
