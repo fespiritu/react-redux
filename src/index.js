@@ -5,6 +5,8 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./dashboard.css";
+
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 //redux stuffs
