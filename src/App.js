@@ -6,25 +6,36 @@ import { connect } from "react-redux";
 import { simpleClickAction, my_BUTTON_CLICK } from "./actions/simpleAction";
 import { constants } from "./constants";
 import MenuItem from "./components/common/menuItem";
-import * as Icon from "react-feather";
+//import * as Icon from "react-feather";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faFile,
+  faShoppingCart
+} from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+library.add(faShoppingCart, faHome, faFile);
 
 const menus = [
   {
-    dataFeather: <Icon.Home />,
+    dataFeather: <FontAwesomeIcon icon="home" />,
     menuName: "Dashboard",
     srOnly: "sr-only",
     currentSrOnly: "(current)",
     isActiveLink: "nav-link active"
   },
   {
-    dataFeather: <Icon.File />,
+    dataFeather: <FontAwesomeIcon icon="file" />,
     menuName: "Orders",
     srOnly: "",
     currentSrOnly: "",
     isActiveLink: "nav-link"
   },
   {
-    dataFeather: <Icon.ShoppingCart />,
+    dataFeather: <FontAwesomeIcon icon="shopping-cart" />,
     menuName: "Products",
     srOnly: "",
     currentSrOnly: "",
